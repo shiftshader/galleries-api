@@ -26,6 +26,8 @@ class RegisterRequest extends FormRequest
     {
         //postavljanje validacije za email i password
         return [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required',
             'string',
@@ -34,7 +36,6 @@ class RegisterRequest extends FormRequest
             'regex:/[A-Z]/',      // must contain at least one uppercase letter
             'regex:/[0-9]/',      // must contain at least one digit
             'regex:/[@$!%*#?&]/', // must contain a special character
-            'name' => 'required|string|max:255'
         ];
     }
 }

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('user_id')
-            ->constrained()
+            $table->foreignId('user_id')->constrained()
+            ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();
         });

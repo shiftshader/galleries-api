@@ -25,9 +25,9 @@ class AuthController extends Controller
         // }
 
         // $token = Auth::login($user);
-//!!!!!!!sve ovo gore se radi kroz klasu Auth::attempt($credentials);
+        //!!!!!!!sve ovo gore se radi kroz klasu Auth::attempt($credentials);
         $token = Auth::attempt($credentials);
-//provere da li postoji token
+        //provere da li postoji token
         if (!$token) {
             return response()->json([
                 'message' => 'Invalid credentials'
@@ -53,7 +53,6 @@ class AuthController extends Controller
 
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
-
         $token = Auth::login($user);
 
         return response()->json([
